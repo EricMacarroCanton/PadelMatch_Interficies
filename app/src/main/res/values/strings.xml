@@ -12,4 +12,5 @@
     <string name="b_titulo">Encuentra a tu gente, Encuentra tu Partido</string>
     <string name="b_subtitulo">Conoce a gente de tu nivel i encuentra partidos cerca de ti</string>
     <string name="b_btn_inici_de_sessio">  Inicio de sesión</string>
+    <string name="b_pass_forgot">  Contraseña olvidada?</string>
 </resources>
