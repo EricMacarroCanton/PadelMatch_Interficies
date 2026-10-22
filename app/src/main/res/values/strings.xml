@@ -6,5 +6,10 @@
     <string name="hint_password">Contraseña</string>
     <string name="btn_login">Iniciar Sesión</string>
     <string name="text_no_account">¿Aún no tienes cuenta?</string>
-    <string name="btn_go_to_register">Regístrate aquí</string>
+    <string name="btn_registro">Regístrate aquí</string>
+    <string name="b_btn_registro">Regístrate aquí</string>
+    <string name="b_etiqueta_superior">Tu próximo partido comienza aquí.</string>
+    <string name="b_titulo">Encuentra a tu gente, Encuentra tu Partido</string>
+    <string name="b_subtitulo">Conoce a gente de tu nivel i encuentra partidos cerca de ti</string>
+    <string name="b_btn_inici_de_sessio">  Inicio de sesión</string>
 </resources>
