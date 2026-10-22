@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">PadelMatch_Interficies</string>
+    <string name="app_name">PadelMatch</string>
+    <string name="login_title">¡Hola de nuevo!</string>
+    <string name="login_subtitle">Inicia sesión para gestionar tus partidos</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_login">Iniciar Sesión</string>
+    <string name="text_no_account">¿Aún no tienes cuenta?</string>
+    <string name="btn_go_to_register">Regístrate aquí</string>
 </resources>
