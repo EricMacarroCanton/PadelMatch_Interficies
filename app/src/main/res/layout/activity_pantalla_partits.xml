@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backBlack"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/titolApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layoutFiltro"
+        app:layout_constraintBottom_toBottomOf="@id/layoutFiltro" />
+
+    <ImageButton
+        android:id="@+id/btnMic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"
+        android:src="@drawable/mic"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/desc_mic"
+        app:layout_constraintEnd_toStartOf="@id/layoutFiltro"
+        app:layout_constraintTop_toTopOf="@id/layoutFiltro"
+        app:layout_constraintBottom_toBottomOf="@id/layoutFiltro" />
+
+    <LinearLayout
+        android:id="@+id/layoutFiltro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_filtro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/filtre"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/txt_filtro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/b_btn_filtro"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

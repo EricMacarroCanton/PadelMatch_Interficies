@@ -11,5 +11,8 @@
     <string name="b_etiqueta_superior">Tu próximo partido comienza aquí.</string>
     <string name="b_titulo">Encuentra a tu gente, Encuentra tu Partido</string>
     <string name="b_subtitulo">Conoce a gente de tu nivel i encuentra partidos cerca de ti</string>
-    <string name="b_btn_inici_de_sessio">  Inicio de sesión</string>
+    <string name="b_btn_inicio_de_session">  Inicio de sesión</string>
+    <string name="b_btn_filtro">Filtro</string>
+    <string name="desc_mic">Buscador por voz</string>
+
 </resources>
