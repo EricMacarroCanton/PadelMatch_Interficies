@@ -14,5 +14,11 @@
     <string name="b_btn_inicio_de_session">  Inicio de sesión</string>
     <string name="b_btn_filtro">Filtro</string>
     <string name="desc_mic">Buscador por voz</string>
+    <string name="l_btn_partidos">Partidos</string>
+    <string name="l_btn_mis_partidos">Mis Partidos</string>
+    <string name="l_btn_configuracion">Configuración</string>
+    <string name="l_barra_busqueda">Busca un club o ciudad...</string>
+
+
 
 </resources>

@@ -39,6 +39,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:clickable="true"
+        android:focusable="true"
         android:paddingHorizontal="12dp"
         android:paddingVertical="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,5 +63,113 @@
             android:textSize="12sp" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutNavegacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titolApp">
+
+        <LinearLayout
+            android:id="@+id/tab_cuadricula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:background="@color/secondGrey"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/btn_cuadricula"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/cuadricula"
+                app:tint="@color/green" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/l_btn_partidos"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_mispartidos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@color/secondGrey">
+
+            <ImageView
+                android:id="@+id/btn_mispartidos"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/check"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/l_btn_mis_partidos"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_configuracion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@color/secondGrey">
+
+            <ImageView
+                android:id="@+id/btn_configuracion"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/configuracion"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/l_btn_configuracion"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/barra_busqueda"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="@string/l_barra_busqueda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutNavegacion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
