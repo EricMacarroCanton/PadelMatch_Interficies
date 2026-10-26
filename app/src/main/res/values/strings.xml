@@ -18,7 +18,13 @@
     <string name="l_btn_mis_partidos">Mis Partidos</string>
     <string name="l_btn_configuracion">Configuración</string>
     <string name="l_barra_busqueda">Busca un club o ciudad...</string>
+    <string name="l_titulo_partidos">Nick Pàdel Club</string>
     <string name="b_pass_forgot">¿Contraseña Olvidada?</string>
-
+    <string name="l_nom_club_1">Nick Padel Club</string>
+    <string name="l_nivell_1">NVL 3.5</string>
+    <string name="l_data_hora_1">HOY · 18:30–20:00</string>
+    <string name="l_places_lliures_1">Huecos · 3/4</string>
+    <string name="l_posicio_1">Posición · Revés</string>
+    <string name="btn_ver">Ver</string>
 
 </resources>

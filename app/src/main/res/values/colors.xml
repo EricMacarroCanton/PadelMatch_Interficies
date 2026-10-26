@@ -6,4 +6,5 @@
     <color name="backBlack">#1E1E1E</color>
     <color name="secondGrey">#2A2A2A</color>
     <color name="greyWhite">#A0A0A0</color>
+    <color name="green_level_bg">#33A3E635</color>
 </resources>
