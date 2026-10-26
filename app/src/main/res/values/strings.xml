@@ -19,6 +19,12 @@
     <string name="l_btn_configuracion">Configuración</string>
     <string name="l_barra_busqueda">Busca un club o ciudad...</string>
     <string name="b_pass_forgot">¿Contraseña Olvidada?</string>
-
+    <string name="register_title">Crea tu cuenta</string>
+    <string name="register_subtitle">Únete a PadelMatch y empieza a jugar</string>
+    <string name="hint_name">Nombre completo</string>
+    <string name="hint_level">Nivel de pádel (ej: 3.5)</string>
+    <string name="btn_create_account">Crear Cuenta</string>
+    <string name="text_already_have_account">¿Ya tienes cuenta?</string>
+    <string name="btn_go_to_login">Inicia sesión</string>
 
 </resources>
