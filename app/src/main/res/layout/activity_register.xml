@@ -3,34 +3,36 @@
     android:id="@+id/layout_register"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backBlack"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".RegisterActivity">
 
-    <!-- Títol -->
+    <!-- Título principal -->
     <TextView
         android:id="@+id/tvAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:text="@string/app_name"
         android:textColor="@color/green"
-        android:textSize="36sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Subtitols -->
+    <!-- Subtítulos -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/register_title"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +42,7 @@
         android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/register_subtitle"
         android:textColor="@color/greyWhite"
         android:textSize="14sp"
@@ -48,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-    <!-- Camp Nom -->
+    <!-- Campo Nombre Completo -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -63,20 +65,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
 
-    <!-- Camp Email -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo Email -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:hint="@string/hint_email"
+        android:textColorHint="@color/greyWhite"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilName"
-        android:backgroundTint="@color/backBlack"
-        app:boxStrokeColor="@color/green"
-        app:hintTextColor="@color/green">
+        app:layout_constraintTop_toBottomOf="@id/tilName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
@@ -85,16 +96,15 @@
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textColor="@color/white" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Camp Contrasenya -->
+    <!-- Campo Contraseña -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:hint="@string/hint_password"
         android:textColorHint="@color/greyWhite"
         app:boxStrokeColor="@color/green"
@@ -112,58 +122,74 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textColor="@color/white" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
-
-
-    <!-- Camp Inci Sessió -->
-    <Button
-        android:id="@+id/btn_login"
+    <!-- Nivell -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLevel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        app:cornerRadius="12dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/hint_level"
+        android:textColorHint="@color/greyWhite"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_forgot_password"
-        android:backgroundTint="@color/green"
-        android:text="@string/btn_login"
-        android:textColor="@color/backBlack"
-        android:textStyle="bold"
-        android:textSize="16sp"/>
+        app:layout_constraintTop_toBottomOf="@id/tilPassword">
 
-    <!-- Camp Registrar-se -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Crear Cuenta -->
     <Button
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_login"
-        android:backgroundTint="#00000000"
-        android:text="@string/text_no_account"
-        android:textColor="#A3E635"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/btn_create_account"
+        android:textColor="@color/backBlack"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:textSize="16sp"/>
-
-    <!-- Camp Contrasenya oblidada -->
-    <Button
-        android:id="@+id/btn_forgot_password"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-
         app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword"
-        android:backgroundTint="#00000000"
-        android:text="@string/b_pass_forgot"
-        android:textColor="#A1A1AA"
-        android:textSize="14sp"/>
+        app:layout_constraintTop_toBottomOf="@id/tilLevel" />
 
+    <!-- Volver al Login -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_already_have_account"
+            android:textColor="@color/greyWhite" />
+
+        <TextView
+            android:id="@+id/tvGoToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/btn_go_to_login"
+            android:textColor="@color/green"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
