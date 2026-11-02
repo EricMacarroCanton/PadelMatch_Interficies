@@ -18,13 +18,24 @@
     <string name="l_btn_mis_partidos">Mis Partidos</string>
     <string name="l_btn_configuracion">Configuración</string>
     <string name="l_barra_busqueda">Busca un club o ciudad...</string>
-    <string name="l_titulo_partidos">Nick Pàdel Club</string>
+    <string name="l_titulo_partidos">Partidos cerca de ti</string>
     <string name="b_pass_forgot">¿Contraseña Olvidada?</string>
     <string name="l_nom_club_1">Nick Padel Club</string>
+    <string name="l_nom_club_2">Vall Parc</string>
+    <string name="l_nom_club_3">FairPlay Padel Club</string>
     <string name="l_nivell_1">NVL 3.5</string>
     <string name="l_data_hora_1">HOY · 18:30–20:00</string>
-    <string name="l_places_lliures_1">Huecos · 3/4</string>
-    <string name="l_posicio_1">Posición · Revés</string>
+    <string name="l_data_hora_2">HOY · 19:30–21:00</string>
+    <string name="l_data_hora_3">MAÑANA · 16:30–17:00</string>
+    <string name="l_huecos_1">Huecos · 3/4</string>
+    <string name="l_huecos_2">Huecos · 3/4</string>
+    <string name="l_huecos_3">Huecos · 2/4</string>
+    <string name="l_posicion_1">Posición - Revés</string>
+    <string name="l_posicion_2">Posición - Drive</string>
+    <string name="l_posicion_3">Posición - Cualquiera</string>
+    <string name="l_nivel_1">NVL 2.5</string>
+    <string name="l_nivel_2">NVL 4.0</string>
+    <string name="l_nivel_3">NVL 3.5</string>
     <string name="btn_ver">Ver</string>
 
 </resources>
