@@ -37,5 +37,16 @@
     <string name="l_nivel_2">NVL 4.0</string>
     <string name="l_nivel_3">NVL 3.5</string>
     <string name="btn_ver">Ver</string>
+    <string name="mp_titulo_proximos">Próximos partidos</string>
+    <string name="mp_titulo_anteriores">Anteriores</string>
+    <string name="mp_estado_confirmado">CONFIRMADO</string>
+    <string name="mp_estado_pendiente">PENDIENTE</string>
+    <string name="mp_estado_finalizado">FINALIZADO</string>
+    <string name="mp_jugadores_1">Jugadores · 4/4</string>
+    <string name="mp_jugadores_2">Jugadores · 3/4</string>
+    <string name="mp_jugadores_3">Jugadores · 4/4</string>
+    <string name="mp_fecha_pasada">AYER · 19:30–21:00</string>
+    <string name="mp_btn_view">View</string>
+    <string name="mp_btn_cancelar">Cancelar</string>
 
 </resources>
