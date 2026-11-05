@@ -37,5 +37,6 @@
     <string name="l_nivel_2">NVL 4.0</string>
     <string name="l_nivel_3">NVL 3.5</string>
     <string name="btn_ver">Ver</string>
-
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_section_profile">Perfil de jugador</string>
 </resources>
