@@ -12,9 +12,9 @@ class ayuda : AppCompatActivity() {
 
         val btnEnrere = findViewById<ImageButton>(R.id.btn_enrere)
         btnEnrere.setOnClickListener {
-            //val intent = Intent(this, configuracio::class.java)
+            val intent = Intent(this, activity_settings::class.java)
             startActivity(intent)
-            finish() // Tanca aquesta activitat perquè no quedi oberta al fons
+            finish()
         }
     }
 }

@@ -24,7 +24,7 @@ class pantalla_partits : AppCompatActivity() {
 
         val tabConfiguracion = findViewById<LinearLayout>(R.id.tab_configuracion)
         tabConfiguracion.setOnClickListener {
-            // val intent = Intent(this, NombreDeLaClaseDeConfiguracion::class.java)
+            val intent = Intent(this, activity_settings::class.java)
         }
     }
 }

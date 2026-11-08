@@ -20,12 +20,12 @@ class mispartidos : AppCompatActivity() {
         tabCuadricula?.setOnClickListener {
             val intent = Intent(this, pantalla_partits::class.java)
             startActivity(intent)
-            finish() // Tanca aquesta activitat per tornar netament a la principal
+            finish()
         }
 
         val tabConfiguracion = findViewById<LinearLayout>(R.id.tab_configuracion)
-        tabConfiguracion?.setOnClickListener {
-
+        tabConfiguracion.setOnClickListener {
+            val intent = Intent(this, activity_settings::class.java)
         }
     }
 }
