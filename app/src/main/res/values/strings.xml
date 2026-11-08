@@ -39,4 +39,9 @@
     <string name="btn_ver">Ver</string>
     <string name="settings_title">Ajustes</string>
     <string name="settings_section_profile">Perfil de jugador</string>
+    <string name="settings_appearance">Aparència i Accessibilitat</string>
+    <string name="switch_dark_mode">Modo Oscuro</string>
+    <string name="switch_dark_mode_desc">Ajustado para la mejor visión en pista</string>
+    <string name="switch_high_contrast">Alto Contraste</string>
+    <string name="switch_high_contrast_desc">Claridad adicional pera textos i controles</string>
 </resources>
