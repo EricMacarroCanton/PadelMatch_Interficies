@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/backBlack"
     android:padding="24dp"
-    tools:context=".SettingsActivity">
+    tools:context=".activity_settings">
 
     <!-- Titol -->
     <TextView
