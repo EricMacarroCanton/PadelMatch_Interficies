@@ -48,5 +48,25 @@
     <string name="mp_fecha_pasada">AYER · 19:30–21:00</string>
     <string name="mp_btn_view">View</string>
     <string name="mp_btn_cancelar">Cancelar</string>
+    <string name="filter_title">Filtrar partidos</string>
+    <string name="desc_cerrar">Cerrar filtros</string>
+    <string name="filter_skill_level">Nivel de habilidad</string>
+    <string name="filter_skill_range_value">2.5 – 4.0</string>
+    <string name="filter_skill_desc">Niveles de partido en tu rango seleccionado.</string>
+    <string name="filter_min_skill">1.0</string>
+    <string name="filter_max_skill">5.0</string>
+    <string name="filter_court_position">Posición en pista necesaria</string>
+    <string name="filter_pos_drive">Drive</string>
+    <string name="filter_pos_backhand">Revés</string>
+    <string name="filter_pos_any">Cualquiera</string>
+    <string name="filter_availability">Disponibilidad</string>
+    <string name="filter_all_matches">Todos los partidos</string>
+    <string name="filter_open_spots">Solo partidos con plazas libres</string>
+    <string name="filter_search_distance">Distancia de búsqueda</string>
+    <string name="filter_distance_value">15 km</string>
+    <string name="filter_min_distance">1 km</string>
+    <string name="filter_max_distance">50 km</string>
+    <string name="filter_btn_apply">Aplicar filtros</string>
+    <string name="filter_btn_reset">Restablecer filtros</string>
 
 </resources>
