@@ -114,3 +114,16 @@
         app:layout_constraintTop_toBottomOf="@id/switchVoiceControl"
         app:thumbTint="@color/green"
         app:trackTint="@color/secondGrey" />
+
+    <!-- Slider distancia -->
+    <TextView
+        android:id="@+id/tvHeaderDiscovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/settings_discovery"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/switchNotifications" />

@@ -47,4 +47,6 @@
     <string name="settings_app_pref">Preferencias de la aplicación</string>
     <string name="switch_voice_control">Control por voz</string>
     <string name="switch_notifications">Notificaciones de partidos</string>
+    <string name="settings_discovery">Cerca de partits</string>
+    <string name="text_search_distance">Distància màxima de cerca</string>
 </resources>
