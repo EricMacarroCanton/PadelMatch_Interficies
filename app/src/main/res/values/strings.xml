@@ -49,4 +49,7 @@
     <string name="switch_notifications">Notificaciones de partidos</string>
     <string name="settings_discovery">Cerca de partits</string>
     <string name="text_search_distance">Distància màxima de cerca</string>
+    <string name="distance_15km">Distancia de busqueda: 15 km</string>
+    <string name="btn_save_preferences">Guardar Preferencias</string>
+    <string name="btn_help_section">Centro de ayuda</string>
 </resources>
