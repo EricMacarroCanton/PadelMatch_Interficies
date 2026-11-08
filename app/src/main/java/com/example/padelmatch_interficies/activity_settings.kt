@@ -16,5 +16,12 @@ class activity_settings : AppCompatActivity() {
             val intent = Intent(this, ayuda::class.java)
             startActivity(intent)
         }
+
+        val btnSave = findViewById<Button>(R.id.btnSavePreferences)
+        btnSave?.setOnClickListener {
+            val intent = Intent(this@activity_settings, pantalla_partits::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
