@@ -1,20 +1,31 @@
 package com.example.padelmatch_interficies
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class mispartidos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_mispartidos)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val layoutFiltro = findViewById<LinearLayout>(R.id.layoutFiltro)
+        layoutFiltro?.setOnClickListener {
+            val intent = Intent(this, filtro::class.java)
+            startActivity(intent)
+        }
+
+        val tabCuadricula = findViewById<LinearLayout>(R.id.tab_cuadricula)
+        tabCuadricula?.setOnClickListener {
+            val intent = Intent(this, pantalla_partits::class.java)
+            startActivity(intent)
+            finish() // Tanca aquesta activitat per tornar netament a la principal
+        }
+
+        val tabConfiguracion = findViewById<LinearLayout>(R.id.tab_configuracion)
+        tabConfiguracion?.setOnClickListener {
+
         }
     }
 }
