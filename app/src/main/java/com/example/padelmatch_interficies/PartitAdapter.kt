@@ -13,16 +13,16 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<PartitAdapter.PartitViewHolder>() {
 
     class PartitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nom_Club: TextView = itemView.findViewById(R.id.txt_nom_Club)
+        val txt_nom_Club: TextView = itemView.findViewById(R.id.txt_nom_club)
         val txt_data_hora: TextView = itemView.findViewById(R.id.txt_data_hora)
 
         val txt_nivel: TextView = itemView.findViewById(R.id.txt_nivel)
-        val btnModificar: Button = itemView.findViewById(R.id.btnModificar)
-        val btnEliminar: Button = itemView.findViewById(R.id.btnEliminar)
+        val btn_edit: Button = itemView.findViewById(R.id.btn_edit)
+        val btnEliminar: Button = itemView.findViewById(R.id.btn_remove)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartitViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_partit, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_partit, parent, false)
         return PartitViewHolder(view)
     }
 
@@ -33,7 +33,7 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
         holder.txt_data_hora.text = partit.horari
         holder.txt_nivel.text = partit.nivell
 
-        holder.btnModificar.setOnClickListener {
+        holder.btn_edit.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
                 "Modificant: ${partit.club}",
