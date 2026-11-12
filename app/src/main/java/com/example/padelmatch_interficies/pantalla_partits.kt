@@ -34,5 +34,6 @@ class pantalla_partits : AppCompatActivity() {
             val intent = Intent(this@pantalla_partits, activity_crearpartit::class.java)
             startActivity(intent)
         }
+
     }
 }
