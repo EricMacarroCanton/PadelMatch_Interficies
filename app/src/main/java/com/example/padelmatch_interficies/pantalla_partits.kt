@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class pantalla_partits : AppCompatActivity() {
@@ -34,6 +36,14 @@ class pantalla_partits : AppCompatActivity() {
             val intent = Intent(this@pantalla_partits, activity_crearpartit::class.java)
             startActivity(intent)
         }
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerPartits)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
+        val llistaDeProva = mutableListOf(
+            Partit("Nick Padel Club", "HOY · 18:30 - 20:00", "4/4", "Confirmado"),
+            Partit("FairPlay Padel Club", "MAÑANA · 16:30 - 17:00", "3/4", "Pendiente")
+        )
+
+        recyclerView.adapter = PartitAdapter(llistaDeProva)
     }
 }

@@ -38,5 +38,11 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
             ).show()
             Log.d("PadelMatchDebug", "Modificat element a la posició $position")
         }
+        holder.btnEliminar.setOnClickListener {
+            Toast.makeText(holder.itemView.context, "Eliminat: ${partit.club}", Toast.LENGTH_SHORT).show()
+            Log.d("PadelMatchDebug", "Eliminat element a la posició $position")
+        }
     }
+
+    override fun getItemCount(): Int = llistaPartits.size
 }
