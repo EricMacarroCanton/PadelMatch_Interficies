@@ -13,8 +13,10 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<PartitAdapter.PartitViewHolder>() {
 
     class PartitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtClub: TextView = itemView.findViewById(R.id.txtClub)
-        val txtHorari: TextView = itemView.findViewById(R.id.txtHorari)
+        val txt_nom_Club: TextView = itemView.findViewById(R.id.txt_nom_Club)
+        val txt_data_hora: TextView = itemView.findViewById(R.id.txt_data_hora)
+
+        val txt_nivel: TextView = itemView.findViewById(R.id.txt_nivel)
         val btnModificar: Button = itemView.findViewById(R.id.btnModificar)
         val btnEliminar: Button = itemView.findViewById(R.id.btnEliminar)
     }
@@ -27,8 +29,9 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     override fun onBindViewHolder(holder: PartitViewHolder, position: Int) {
         val partit = llistaPartits[position]
 
-        holder.txtClub.text = partit.club
-        holder.txtHorari.text = partit.horari
+        holder.txt_nom_Club.text = partit.club
+        holder.txt_data_hora.text = partit.horari
+        holder.txt_nivel.text = partit.nivell
 
         holder.btnModificar.setOnClickListener {
             Toast.makeText(
