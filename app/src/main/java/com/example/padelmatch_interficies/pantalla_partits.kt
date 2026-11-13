@@ -40,8 +40,8 @@ class pantalla_partits : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val llistaDeProva = mutableListOf(
-            Partit("Nick Padel Club", "HOY · 18:30 - 20:00", "4/4", "Confirmado"),
-            Partit("FairPlay Padel Club", "MAÑANA · 16:30 - 17:00", "3/4", "Pendiente")
+            Partit("Nick Padel Club", "HOY · 18:30 - 20:00", "Places · 4/4", "NVL 3.5", "Confirmado", "Drive"),
+            Partit("FairPlay Padel Club", "MAÑANA · 16:30 - 17:00", "Places · 3/4", "NVL 4.0", "Pendiente", "Revés")
         )
 
         recyclerView.adapter = PartitAdapter(llistaDeProva)

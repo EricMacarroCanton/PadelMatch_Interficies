@@ -5,5 +5,6 @@ data class Partit(
     val horari: String,
     val places: String,
     val nivell: String,
-    val estat: String
+    val estat: String,
+    val posicion: String
 )

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.ImageButton
 
 class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<PartitAdapter.PartitViewHolder>() {
@@ -18,7 +19,9 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
         val txt_plazas: TextView = itemView.findViewById(R.id.txt_plazas)
         val txt_nivel: TextView = itemView.findViewById(R.id.txt_nivel)
         val btn_edit: Button = itemView.findViewById(R.id.btn_edit)
-        val btnEliminar: Button = itemView.findViewById(R.id.btn_remove)
+        val btn_eliminar: ImageButton = itemView.findViewById(R.id.btn_remove)
+        val txt_posicion: TextView = itemView.findViewById(R.id.txt_posicion)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartitViewHolder {
@@ -33,6 +36,7 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
         holder.txt_data_hora.text = partit.horari
         holder.txt_nivel.text = partit.nivell
         holder.txt_plazas.text = partit.places
+        holder.txt_posicion.text = "Posició · ${partit.posicion}"
 
         holder.btn_edit.setOnClickListener {
             Toast.makeText(
@@ -42,7 +46,7 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
             ).show()
             Log.d("PadelMatchDebug", "Modificat element a la posició $position")
         }
-        holder.btnEliminar.setOnClickListener {
+        holder.btn_eliminar.setOnClickListener {
             Toast.makeText(holder.itemView.context, "Eliminat: ${partit.club}", Toast.LENGTH_SHORT).show()
             Log.d("PadelMatchDebug", "Eliminat element a la posició $position")
         }
