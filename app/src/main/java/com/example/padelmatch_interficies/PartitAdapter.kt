@@ -15,7 +15,7 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     class PartitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txt_nom_Club: TextView = itemView.findViewById(R.id.txt_nom_club)
         val txt_data_hora: TextView = itemView.findViewById(R.id.txt_data_hora)
-
+        val txt_plazas: TextView = itemView.findViewById(R.id.txt_plazas)
         val txt_nivel: TextView = itemView.findViewById(R.id.txt_nivel)
         val btn_edit: Button = itemView.findViewById(R.id.btn_edit)
         val btnEliminar: Button = itemView.findViewById(R.id.btn_remove)
@@ -32,6 +32,7 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
         holder.txt_nom_Club.text = partit.club
         holder.txt_data_hora.text = partit.horari
         holder.txt_nivel.text = partit.nivell
+        holder.txt_plazas.text = partit.places
 
         holder.btn_edit.setOnClickListener {
             Toast.makeText(
