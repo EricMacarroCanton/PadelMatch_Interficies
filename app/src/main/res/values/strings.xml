@@ -127,6 +127,13 @@
     <string name="_10_00">10.00</string>
     <string name="guardar_partida">Guardar partida</string>
     <string name="cancelar">Cancelar</string>
+    <string name="nom_club">Nom Club</string>
+    <string name="nvl_3_5">NVL 3.5</string>
+    <string name="avui_18_30">AVUI · 18:30</string>
+    <string name="places_3_4">Places · 3/4</string>
+    <string name="posicio_drive">Posició · Drive</string>
+    <string name="eliminar_partit">Eliminar partit</string>
+    <string name="editar">Editar</string>
 
 
 </resources>
