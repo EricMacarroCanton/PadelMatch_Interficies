@@ -86,7 +86,7 @@
                 android:text="@string/places_3_4"
                 android:textColor="@color/white"
                 android:textSize="13sp"
-                app:layout_constraintEnd_toStartOf="@id/btn_remove"
+                app:layout_constraintEnd_toStartOf="@id/btn_edit"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout_fecha" />
 
@@ -98,7 +98,7 @@
                 android:text="@string/posicio_drive"
                 android:textColor="@color/white"
                 android:textSize="13sp"
-                app:layout_constraintEnd_toStartOf="@id/btn_remove"
+                app:layout_constraintEnd_toStartOf="@id/btn_edit"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_plazas" />
 
