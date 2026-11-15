@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<PartitAdapter.PartitViewHolder>() {
-
     class PartitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txt_nom_Club: TextView = itemView.findViewById(R.id.txt_nom_club)
         val txt_data_hora: TextView = itemView.findViewById(R.id.txt_data_hora)
@@ -31,20 +30,18 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
         val partit = llistaPartits[position]
 
         holder.txt_nom_Club.text = partit.club
-        holder.txt_data_hora.text = partit.horari
-        holder.txt_nivel.text = partit.nivell
-        holder.txt_plazas.text = partit.places
-        holder.txt_posicion.text = "Posició · ${partit.posicion}"
+        holder.txt_data_hora.text = partit.horario
+        holder.txt_nivel.text = partit.nivel
+        holder.txt_plazas.text = partit.plazas
+        holder.txt_posicion.text = "Posición · ${partit.posicion}"
 
-        holder.btn_edit.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                "Modificant: ${partit.club}",
-                Toast.LENGTH_SHORT
-            ).show()
-            Log.d("PadelMatchDebug", "Modificat element a la posició $position")
-        }
+
     }
 
     override fun getItemCount(): Int = llistaPartits.size
+    fun afegirPartit(nouPartit: Partit) {
+        llistaPartits.add(nouPartit)
+        notifyItemInserted(llistaPartits.size - 1)
+        Log.d("PadelMatchDebug", "Nou partit afegit: ${nouPartit.club}")
+    }
 }

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Intent
 
 class MisPartidosAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<MisPartidosAdapter.MisPartidosViewHolder>() {
@@ -32,25 +33,32 @@ class MisPartidosAdapter(private val llistaPartits: MutableList<Partit>) :
         val partit = llistaPartits[position]
 
         holder.txt_nom_Club.text = partit.club
-        holder.txt_data_hora.text = partit.horari
-        holder.txt_plazas.text = partit.places
-        holder.txt_posicion.text = "Posició · ${partit.posicion}"
+        holder.txt_data_hora.text = partit.horario
+        holder.txt_plazas.text = partit.plazas
+        holder.txt_posicion.text = "Posición · ${partit.posicion}"
 
         holder.btn_edit.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                "Modificant: ${partit.club}",
-                Toast.LENGTH_SHORT
-            ).show()
-            Log.d("PadelMatchDebug", "Modificat element a la posició $position")
+            Log.d("PadelMatchDebug", "Modificado elemento a la posición $position")
+
+            val context = holder.itemView.context
+            val intent = Intent(context, activity_crearpartit::class.java)
+            intent.putExtra("club", partit.club)
+            intent.putExtra("horario", partit.horario)
+            intent.putExtra("modo_edicio", true)
+            context.startActivity(intent)
         }
 
         holder.btn_cancelar.setOnClickListener {
             val pos = holder.bindingAdapterPosition
             if (pos != RecyclerView.NO_POSITION) {
+                val partitEliminat = llistaPartits[pos]
                 llistaPartits.removeAt(pos)
                 notifyItemRemoved(pos)
-                Log.d("PadelMatchDebug", "Cancel·lat element a la posició $pos")
+
+                Toast.makeText(
+                    holder.itemView.context,
+                    "Partido candelado: ${partitEliminat.club}",
+                    Toast.LENGTH_SHORT)
             }
         }
     }
