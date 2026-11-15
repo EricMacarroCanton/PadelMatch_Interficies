@@ -3,6 +3,8 @@
     <style name="Base.Theme.PadelMatch_Interficies" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/backBlack</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.PadelMatch_Interficies" parent="Base.Theme.PadelMatch_Interficies" />
