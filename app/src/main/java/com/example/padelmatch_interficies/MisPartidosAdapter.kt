@@ -33,18 +33,18 @@ class MisPartidosAdapter(private val llistaPartits: MutableList<Partit>) :
         val partit = llistaPartits[position]
 
         holder.txt_nom_Club.text = partit.club
-        holder.txt_data_hora.text = partit.horari
-        holder.txt_plazas.text = partit.places
-        holder.txt_posicion.text = "Posició · ${partit.posicion}"
+        holder.txt_data_hora.text = partit.horario
+        holder.txt_plazas.text = partit.plazas
+        holder.txt_posicion.text = "Posición · ${partit.posicion}"
 
         holder.btn_edit.setOnClickListener {
-            Log.d("PadelMatchDebug", "Modificat element a la posició $position")
+            Log.d("PadelMatchDebug", "Modificado elemento a la posición $position")
 
             val context = holder.itemView.context
             val intent = Intent(context, activity_crearpartit::class.java)
             intent.putExtra("club", partit.club)
-            intent.putExtra("horari", partit.horari)
-            intent.putExtra("mode_edicio", true)
+            intent.putExtra("horario", partit.horario)
+            intent.putExtra("modo_edicio", true)
             context.startActivity(intent)
         }
 
@@ -57,7 +57,7 @@ class MisPartidosAdapter(private val llistaPartits: MutableList<Partit>) :
 
                 Toast.makeText(
                     holder.itemView.context,
-                    "Partit cancel·lat: ${partitEliminat.club}",
+                    "Partido candelado: ${partitEliminat.club}",
                     Toast.LENGTH_SHORT)
             }
         }

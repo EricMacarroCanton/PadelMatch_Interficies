@@ -30,10 +30,10 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
         val partit = llistaPartits[position]
 
         holder.txt_nom_Club.text = partit.club
-        holder.txt_data_hora.text = partit.horari
-        holder.txt_nivel.text = partit.nivell
-        holder.txt_plazas.text = partit.places
-        holder.txt_posicion.text = "Posició · ${partit.posicion}"
+        holder.txt_data_hora.text = partit.horario
+        holder.txt_nivel.text = partit.nivel
+        holder.txt_plazas.text = partit.plazas
+        holder.txt_posicion.text = "Posición · ${partit.posicion}"
 
 
     }
