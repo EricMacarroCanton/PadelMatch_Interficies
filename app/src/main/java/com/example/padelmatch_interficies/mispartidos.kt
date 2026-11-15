@@ -35,16 +35,15 @@ class mispartidos : AppCompatActivity() {
         recyclerProximos.layoutManager = LinearLayoutManager(this)
 
         val llistaProximos = mutableListOf(
-            Partit("Padel Indoor Badalona", "DIJOUS · 20:00 - 21:30", "NVL 4.0", "Places · 4/4", "Inscrit")
+            Partit("Padel Indoor Badalona", "DIJOUS · 20:00 - 21:30", "Places · 4/4", "NVL 4.0", "Inscrit", "Drive")
         )
         recyclerProximos.adapter = PartitAdapter(llistaProximos)
 
-        // --- 2. CONFIGURACIÓ DE PARTITS ANTERIORS ---
         val recyclerAnteriores = findViewById<RecyclerView>(R.id.recyclerMisPartidosAnteriores)
         recyclerAnteriores.layoutManager = LinearLayoutManager(this)
 
         val llistaAnteriores = mutableListOf(
-            Partit("BCN Padel Club", "PASSAT · 10:00 - 11:30", "NVL 3.5", "Places · 4/4", "Finalitzat")
+            Partit("BCN Padel Club", "PASSAT · 10:00 - 11:30", "Places · 4/4", "NVL 3.5", "Finalitzat", "Drives")
         )
         recyclerAnteriores.adapter = PartitAdapter(llistaAnteriores)
     }
