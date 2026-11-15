@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Intent
 
 class MisPartidosAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<MisPartidosAdapter.MisPartidosViewHolder>() {
@@ -37,20 +38,27 @@ class MisPartidosAdapter(private val llistaPartits: MutableList<Partit>) :
         holder.txt_posicion.text = "Posició · ${partit.posicion}"
 
         holder.btn_edit.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                "Modificant: ${partit.club}",
-                Toast.LENGTH_SHORT
-            ).show()
             Log.d("PadelMatchDebug", "Modificat element a la posició $position")
+
+            val context = holder.itemView.context
+            val intent = Intent(context, activity_crearpartit::class.java)
+            intent.putExtra("club", partit.club)
+            intent.putExtra("horari", partit.horari)
+            intent.putExtra("mode_edicio", true)
+            context.startActivity(intent)
         }
 
         holder.btn_cancelar.setOnClickListener {
             val pos = holder.bindingAdapterPosition
             if (pos != RecyclerView.NO_POSITION) {
+                val partitEliminat = llistaPartits[pos]
                 llistaPartits.removeAt(pos)
                 notifyItemRemoved(pos)
-                Log.d("PadelMatchDebug", "Cancel·lat element a la posició $pos")
+
+                Toast.makeText(
+                    holder.itemView.context,
+                    "Partit cancel·lat: ${partitEliminat.club}",
+                    Toast.LENGTH_SHORT)
             }
         }
     }
