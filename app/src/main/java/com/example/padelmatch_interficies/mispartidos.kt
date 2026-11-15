@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class mispartidos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +26,26 @@ class mispartidos : AppCompatActivity() {
         }
 
         val tabConfiguracion = findViewById<LinearLayout>(R.id.tab_configuracion)
-        tabConfiguracion.setOnClickListener {
+        tabConfiguracion?.setOnClickListener {
             val intent = Intent(this, activity_settings::class.java)
             startActivity(intent)
         }
+
+        val recyclerProximos = findViewById<RecyclerView>(R.id.recyclerMisPartidosProximos)
+        recyclerProximos.layoutManager = LinearLayoutManager(this)
+
+        val llistaProximos = mutableListOf(
+            Partit("Padel Indoor Badalona", "DIJOUS · 20:00 - 21:30", "NVL 4.0", "Places · 4/4", "Inscrit")
+        )
+        recyclerProximos.adapter = PartitAdapter(llistaProximos)
+
+        // --- 2. CONFIGURACIÓ DE PARTITS ANTERIORS ---
+        val recyclerAnteriores = findViewById<RecyclerView>(R.id.recyclerMisPartidosAnteriores)
+        recyclerAnteriores.layoutManager = LinearLayoutManager(this)
+
+        val llistaAnteriores = mutableListOf(
+            Partit("BCN Padel Club", "PASSAT · 10:00 - 11:30", "NVL 3.5", "Places · 4/4", "Finalitzat")
+        )
+        recyclerAnteriores.adapter = PartitAdapter(llistaAnteriores)
     }
 }
