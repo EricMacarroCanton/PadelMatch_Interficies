@@ -1,4 +1,4 @@
-package com.example.padelmatch_interficies
+package com.example.padelmatch_interficies.ViewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
