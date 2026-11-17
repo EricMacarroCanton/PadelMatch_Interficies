@@ -26,15 +26,47 @@ class RegisterViewModel : ViewModel() {
     fun validarRegistre(nom: String, email: String, password: String, confirmPassword: String) {
         var esValid = true
 
-        // Validem nom d'usuari
+        // Validem nom usuari
         if (nom.isBlank()) {
-            _nomError.value = "El nom d'usuari és obligatori"
+            _nomError.value = "El nombre de usuario es obligatorio"
             esValid = false
         } else if (nom.length < 3) {
-            _nomError.value = "El nom ha de tenir com a mínim 3 caràcters"
+            _nomError.value = "El nombre debe tener como mínimo 3 caracteres"
             esValid = false
         } else {
             _nomError.value = null
         }
+
+        // Valdem correu electronic
+        if (email.isBlank()) {
+            _emailError.value = "El correo electronico es obligatorio"
+            esValid = false
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            _emailError.value = "El formato del correo no es valido"
+            esValid = false
+        } else {
+            _emailError.value = null
+        }
+
+        // Validem contraseña
+        if (password.isBlank()) {
+            _passwordError.value = "Debes introducir una contraseña"
+            esValid = false
+        } else if (password.length < 6) {
+            _passwordError.value = "La contraseña debe tener como mínimo 6 caracteres"
+            esValid = false
+        } else {
+            _passwordError.value = null
+        }
+
+        // Validem coincidencia de contrasenyes
+        if (confirmPassword != password) {
+            _confirmPasswordError.value = "Las contraseñas no coinciden"
+            esValid = false
+        } else {
+            _confirmPasswordError.value = null
+        }
+
+        _registreExitos.value = esValid
     }
 }
