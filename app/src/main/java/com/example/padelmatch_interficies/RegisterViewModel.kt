@@ -22,22 +22,25 @@ class RegisterViewModel : ViewModel() {
     private val _registreExitos = MutableLiveData<Boolean>()
     val registreExitos: LiveData<Boolean> = _registreExitos
 
+    private val _formulariValid = MutableLiveData<Boolean>()
+    val formulariValid: LiveData<Boolean> = _formulariValid
 
     fun validarRegistre(nom: String, email: String, password: String, confirmPassword: String) {
         var esValid = true
 
-        // Validem nom usuari
         if (nom.isBlank()) {
             _nomError.value = "El nombre de usuario es obligatorio"
             esValid = false
         } else if (nom.length < 3) {
             _nomError.value = "El nombre debe tener como mínimo 3 caracteres"
             esValid = false
+        } else if (!nom.matches(Regex("^[a-zA-Z0-9_]+$"))) {
+            _nomError.value = "Solo se permiten letras, números y guiones bajos"
+            esValid = false
         } else {
             _nomError.value = null
         }
 
-        // Valdem correu electronic
         if (email.isBlank()) {
             _emailError.value = "El correo electronico es obligatorio"
             esValid = false
@@ -48,19 +51,23 @@ class RegisterViewModel : ViewModel() {
             _emailError.value = null
         }
 
-        // Validem contraseña
         if (password.isBlank()) {
             _passwordError.value = "Debes introducir una contraseña"
             esValid = false
         } else if (password.length < 6) {
             _passwordError.value = "La contraseña debe tener como mínimo 6 caracteres"
             esValid = false
+        } else if (!password.any { it.isDigit() } || !password.any { it.isUpperCase() }) {
+            _passwordError.value = "Debe incluir al menos una mayúscula y un número"
+            esValid = false
         } else {
             _passwordError.value = null
         }
 
-        // Validem coincidencia de contrasenyes
-        if (confirmPassword != password) {
+        if (confirmPassword.isBlank()) {
+            _confirmPasswordError.value = "Confirma tu contraseña"
+            esValid = false
+        } else if (confirmPassword != password) {
             _confirmPasswordError.value = "Las contraseñas no coinciden"
             esValid = false
         } else {
@@ -68,5 +75,20 @@ class RegisterViewModel : ViewModel() {
         }
 
         _registreExitos.value = esValid
+    }
+
+    fun comprovarCampsBuits(nom: String, email: String, password: String, confirmPassword: String) {
+        _formulariValid.value = nom.isNotBlank() &&
+                email.isNotBlank() &&
+                password.isNotBlank() &&
+                confirmPassword.isNotBlank()
+    }
+
+    fun netejarErrors() {
+        _nomError.value = null
+        _emailError.value = null
+        _passwordError.value = null
+        _confirmPasswordError.value = null
+        _registreExitos.value = false
     }
 }
