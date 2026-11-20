@@ -16,16 +16,13 @@ class RegisterViewModel : ViewModel() {
     private val _passwordError = MutableLiveData<String?>()
     val passwordError: LiveData<String?> = _passwordError
 
-    private val _confirmPasswordError = MutableLiveData<String?>()
-    val confirmPasswordError: LiveData<String?> = _confirmPasswordError
-
     private val _registreExitos = MutableLiveData<Boolean>()
     val registreExitos: LiveData<Boolean> = _registreExitos
 
     private val _formulariValid = MutableLiveData<Boolean>()
     val formulariValid: LiveData<Boolean> = _formulariValid
 
-    fun validarRegistre(nom: String, email: String, password: String, confirmPassword: String) {
+    fun validarRegistre(nom: String, email: String, password: String) {
         var esValid = true
 
         if (nom.isBlank()) {
@@ -64,31 +61,19 @@ class RegisterViewModel : ViewModel() {
             _passwordError.value = null
         }
 
-        if (confirmPassword.isBlank()) {
-            _confirmPasswordError.value = "Confirma tu contraseña"
-            esValid = false
-        } else if (confirmPassword != password) {
-            _confirmPasswordError.value = "Las contraseñas no coinciden"
-            esValid = false
-        } else {
-            _confirmPasswordError.value = null
-        }
-
         _registreExitos.value = esValid
     }
 
-    fun comprovarCampsBuits(nom: String, email: String, password: String, confirmPassword: String) {
+    fun comprovarCampsBuits(nom: String, email: String, password: String) {
         _formulariValid.value = nom.isNotBlank() &&
                 email.isNotBlank() &&
-                password.isNotBlank() &&
-                confirmPassword.isNotBlank()
+                password.isNotBlank()
     }
 
     fun netejarErrors() {
         _nomError.value = null
         _emailError.value = null
         _passwordError.value = null
-        _confirmPasswordError.value = null
         _registreExitos.value = false
     }
 }
