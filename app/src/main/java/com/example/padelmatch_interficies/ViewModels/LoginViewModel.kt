@@ -6,24 +6,32 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    //LiveData privat per gestionar l'estat intern dels errors o del resultat del login
+    private val _emailError = MutableLiveData<String?>()
+    val emailError: LiveData<String?> get() = _emailError
+
+    private val _passwordError = MutableLiveData<String?>()
+    val passwordError: LiveData<String?> get() = _passwordError
+
     private val _loginResult = MutableLiveData<Boolean>()
     val loginResult: LiveData<Boolean> get() = _loginResult
 
-    private val _errorMessage = MutableLiveData<String?>()
-    val errorMessage: LiveData<String?> get() = _errorMessage
-
-    //Funció de lògica per validar i processar el login
-    fun onLoginClicked(user: String, pass: String) {
-        if (user.isBlank() || pass.isBlank()) {
-            _errorMessage.value = "El usuari i la contrasenya no poden estar buits"
-            _loginResult.value = false
-        } else if (pass.length < 6) {
-            _errorMessage.value = "La contrasenya ha de tenir almenys 6 caràcters"
-            _loginResult.value = false
-        } else {
-            _errorMessage.value = null
-            _loginResult.value = true // Login correcte
+    fun onLoginClicked(email: String, pass: String) {
+        _emailError.value = when {
+            email.isBlank() -> "L'email no pot estar buit"
+            !email.isValidEmail() -> "El format de l'email no és vàlid"
+            else -> null
         }
+
+        _passwordError.value = when {
+            pass.isBlank() -> "La contrasenya no pot estar buida"
+            pass.length < 6 -> "La contrasenya ha de tenir almenys 6 caràcters"
+            else -> null
+        }
+
+        _loginResult.value = _emailError.value == null && _passwordError.value == null
+    }
+
+    fun loginHandled() {
+        _loginResult.value = false
     }
 }
