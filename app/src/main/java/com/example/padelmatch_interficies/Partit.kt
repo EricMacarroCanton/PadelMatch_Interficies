@@ -6,5 +6,6 @@ data class Partit(
     val plazas: String,
     val nivel: String,
     val estado: String,
-    val posicion: String
+    val posicion: String,
+    val id: Long = System.nanoTime()
 )
