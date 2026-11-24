@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
+class   PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<PartitAdapter.PartitViewHolder>() {
     class PartitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txt_nom_Club: TextView = itemView.findViewById(R.id.txt_nom_club)
@@ -43,5 +43,12 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
         llistaPartits.add(nouPartit)
         notifyItemInserted(llistaPartits.size - 1)
         Log.d("PadelMatchDebug", "Nou partit afegit: ${nouPartit.club}")
+    }
+
+    fun actualitzarLlista(novaLlista: List<Partit>) {
+        llistaPartits.clear();
+        llistaPartits.addAll(novaLlista);
+        notifyDataSetChanged();
+
     }
 }
