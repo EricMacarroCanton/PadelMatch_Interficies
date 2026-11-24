@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 
 class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
     RecyclerView.Adapter<PartitAdapter.PartitViewHolder>() {
+
     class PartitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nom_Club: TextView = itemView.findViewById(R.id.txt_nom_club)
-        val txt_data_hora: TextView = itemView.findViewById(R.id.txt_data_hora)
-        val txt_plazas: TextView = itemView.findViewById(R.id.txt_plazas)
-        val txt_nivel: TextView = itemView.findViewById(R.id.txt_nivel)
-        val btn_edit: Button = itemView.findViewById(R.id.btn_edit)
-        val txt_posicion: TextView = itemView.findViewById(R.id.txt_posicion)
+        val txtNomClub: TextView = itemView.findViewById(R.id.txt_nom_club)
+        val txtDataHora: TextView = itemView.findViewById(R.id.txt_data_hora)
+        val txtPlazas: TextView = itemView.findViewById(R.id.txt_plazas)
+        val txtNivel: TextView = itemView.findViewById(R.id.txt_nivel)
+        val btnEdit: Button = itemView.findViewById(R.id.btn_edit)
+        val txtPosicion: TextView = itemView.findViewById(R.id.txt_posicion)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartitViewHolder {
@@ -28,17 +29,27 @@ class PartitAdapter(private val llistaPartits: MutableList<Partit>) :
 
     override fun onBindViewHolder(holder: PartitViewHolder, position: Int) {
         val partit = llistaPartits[position]
+        holder.txtNomClub.text = partit.club
+        holder.txtDataHora.text = partit.horario
+        holder.txtNivel.text = partit.nivel
+        holder.txtPlazas.text = partit.plazas
+        holder.txtPosicion.text = "Posición ${partit.posicion}"
 
-        holder.txt_nom_Club.text = partit.club
-        holder.txt_data_hora.text = partit.horario
-        holder.txt_nivel.text = partit.nivel
-        holder.txt_plazas.text = partit.plazas
-        holder.txt_posicion.text = "Posición · ${partit.posicion}"
-
-
+        holder.btnEdit.setOnClickListener {
+            val pos = holder.bindingAdapterPosition
+            if (pos != RecyclerView.NO_POSITION) {
+                Log.d("PadelMatchDebug", "Unido al partido en posición $pos: ${partit.club}")
+                Toast.makeText(
+                    holder.itemView.context,
+                    "Te has unido a ${partit.club}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     override fun getItemCount(): Int = llistaPartits.size
+
     fun afegirPartit(nouPartit: Partit) {
         llistaPartits.add(nouPartit)
         notifyItemInserted(llistaPartits.size - 1)

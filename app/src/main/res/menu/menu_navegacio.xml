@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_partidos"
+        android:icon="@drawable/cuadricula"
+        android:title="@string/l_btn_partidos" />
+    <item
+        android:id="@+id/nav_mis_partidos"
+        android:icon="@drawable/check"
+        android:title="@string/l_btn_mis_partidos" />
+    <item
+        android:id="@+id/nav_configuracion"
+        android:icon="@drawable/configuracion"
+        android:title="@string/l_btn_configuracion" />
+</menu>

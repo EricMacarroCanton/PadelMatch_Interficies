@@ -1,0 +1,23 @@
+    <?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/action_partidos"
+            android:icon="@drawable/cuadricula"
+            android:title="Partidos"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/action_mis_partidos"
+            android:icon="@drawable/calendario"
+            android:title="Mis partidos"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/action_configuracion"
+            android:icon="@drawable/configuracion"
+            android:title="Configuración"
+            app:showAsAction="always" />
+
+    </menu>
