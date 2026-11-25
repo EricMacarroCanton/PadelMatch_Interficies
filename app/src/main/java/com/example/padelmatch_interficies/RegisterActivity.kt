@@ -26,6 +26,8 @@ class RegisterActivity : AppCompatActivity() {
         val etEmail = findViewById<TextInputEditText>(R.id.etEmail)
         val tilPassword = findViewById<TextInputLayout>(R.id.tilPassword)
         val etPassword = findViewById<TextInputEditText>(R.id.etPassword)
+        val tilLevel = findViewById<TextInputLayout>(R.id.tilLevel)
+        val etLevel = findViewById<TextInputEditText>(R.id.etLevel)
         val btnRegister = findViewById<Button>(R.id.btn_register)
         val tvGoToLogin = findViewById<TextView>(R.id.tvGoToLogin)
 
@@ -39,6 +41,10 @@ class RegisterActivity : AppCompatActivity() {
 
         registerViewModel.passwordError.observe(this) { error ->
             tilPassword?.error = error
+        }
+
+        registerViewModel.nivellError.observe(this) { error ->
+            tilLevel?.error = error
         }
 
         registerViewModel.formulariValid.observe(this) { campsPlens ->
@@ -57,19 +63,22 @@ class RegisterActivity : AppCompatActivity() {
             registerViewModel.comprovarCampsBuits(
                 etName?.text.toString(),
                 etEmail?.text.toString(),
-                etPassword?.text.toString()
+                etPassword?.text.toString(),
+                etLevel?.text.toString()
             )
         }
 
         etName?.doAfterTextChanged { actualitzarEstatBoto() }
         etEmail?.doAfterTextChanged { actualitzarEstatBoto() }
         etPassword?.doAfterTextChanged { actualitzarEstatBoto() }
+        etLevel?.doAfterTextChanged { actualitzarEstatBoto() }
 
         btnRegister?.setOnClickListener {
             registerViewModel.validarRegistre(
                 etName?.text.toString().trim(),
                 etEmail?.text.toString().trim(),
-                etPassword?.text.toString()
+                etPassword?.text.toString(),
+                etLevel?.text.toString().trim()
             )
         }
 

@@ -22,7 +22,10 @@ class RegisterViewModel : ViewModel() {
     private val _formulariValid = MutableLiveData<Boolean>()
     val formulariValid: LiveData<Boolean> = _formulariValid
 
-    fun validarRegistre(nom: String, email: String, password: String) {
+    private val _nivellError = MutableLiveData<String?>()
+    val nivellError: LiveData<String?> = _nivellError
+
+    fun validarRegistre(nom: String, email: String, password: String, nivell: String) {
         var esValid = true
 
         if (nom.isBlank()) {
@@ -61,19 +64,32 @@ class RegisterViewModel : ViewModel() {
             _passwordError.value = null
         }
 
+        val nivellNum = nivell.replace(",", ".").toDoubleOrNull()
+        if (nivell.isBlank()) {
+            _nivellError.value = "El nivel de pádel es obligatorio"
+            esValid = false
+        } else if (nivellNum == null || nivellNum < 1.0 || nivellNum > 7.0) {
+            _nivellError.value = "El nivel debe estar entre 1 y 7"
+            esValid = false
+        } else {
+            _nivellError.value = null
+        }
+
         _registreExitos.value = esValid
     }
 
-    fun comprovarCampsBuits(nom: String, email: String, password: String) {
+    fun comprovarCampsBuits(nom: String, email: String, password: String, nivell: String) {
         _formulariValid.value = nom.isNotBlank() &&
                 email.isNotBlank() &&
-                password.isNotBlank()
+                password.isNotBlank() &&
+                nivell.isNotBlank()
     }
 
     fun netejarErrors() {
         _nomError.value = null
         _emailError.value = null
         _passwordError.value = null
+        _nivellError.value = null
         _registreExitos.value = false
     }
 }
