@@ -25,7 +25,6 @@ class OnlyloginActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.btn_login)
         val btnRegister = findViewById<Button>(R.id.btn_register)
 
-        // Observadors: quan el LiveData canvia, la UI s'actualitza sola
         viewModel.emailError.observe(this) { error ->
             tilEmail.error = error
         }

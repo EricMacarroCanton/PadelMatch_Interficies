@@ -1,45 +1,50 @@
-# 🎾 PadelMatch
+# PadelMatch — Activitat 06 (Menú i Llistes Dinàmiques)
 
-Projecte d'aplicació mòbil per a Android fet en **Kotlin**. L'objectiu de l'app és que els jugadors de pàdel puguin buscar partits disponibles, apuntar-s'hi o crear-ne de nous segons el seu nivell i posició a la pista.
+Aplicació Android feta amb Kotlin i XML per buscar, apuntar-se i gestionar partits de pàdel.
 
----
-
-## 📱 Què fa l'aplicació?
-
-* **Login i Registre (`OnlyloginActivity`, `RegisterActivity`):** Pantalles inicials perquè l'usuari pugui iniciar sessió o crear un compte nou.
-* **Llista de Partits (`pantalla_partits`):** Pantalla principal on es mostren els partits disponibles amb el nom del club, el nivell, l'hora, les places lliures i la posició que es busca (Drive, Revés o Qualsevol).
-* **Els Meus Partits (`mispartidos`):** Apartat on l'usuari pot veure els partits on està apuntat (confirmats, pendents o ja jugats) i pot editar-los o cancel·lar la seva plaça.
-* **Crear i Editar Partit (`activity_crearpartit`):** Formulari que s'obre des del botó flotant `+` per afegir un partit nou escollint el club, data, hora, nivell (amb un Slider), posició i preu.
-* **Filtres (`filtro`):** Pantalla per filtrar els partits segons les preferències de cerca.
-* **Configuració i Ajuda (`activity_settings`, `ayuda`):** Opcions de configuració de l'usuari, pantalla d'ajuda i botó per tancar sessió.
+> **Avís de millora / Recuperació 488-RA4:** Hem canviat el sistema de navegació de l'app. En lloc dels botons simples que teníem al principi, ara fem servir un menú de navegació estàndard d'Android amb un fitxer de recursos XML (`menu_navegacio.xml`) i un `BottomNavigationView` perquè funcioni bé i sigui més còmode moure's entre pantalles.
 
 ---
 
-## 🛠️ Com està fet
+## 1. Què hem fet a l'aplicació
 
-* **Llenguatge:** Kotlin.
-* **Disseny de pantalles:** Fitxers XML utilitzant components de **Material Design** (`MaterialCardView`, `MaterialButton`, `TextInputLayout`, `FloatingActionButton`, `Slider`).
-* **Layouts:** Principalment `ConstraintLayout`, `LinearLayout` i `ScrollView` per adaptar-se bé a la pantalla.
-* **Llistes dinàmiques:** Hem implementat un `RecyclerView` amb el seu propi `Adapter` (`PartitsAdapter`) i `ViewHolder` per carregar dades de prova i gestionar els botons d'afegir, modificar i eliminar partits (mostrant avisos amb `Toast` i missatges al `Logcat`).
-* **Estil visual:** Disseny en **mode fosc** combinant fons negre (`backBlack`), targetes en gris fosc (`secondGrey`) i detalls en verd (`green`).
+* **Pantalla d'inici (`splashscreen.kt` - 489-RA3):** Quan obres l'app surt el nostre logotip (`@drawable/logo`) amb una animació (`res/anim/splash_animation.xml`) que dura un parell de segons abans d'entrar al login.
+* **Menú de navegació (`488-RA4`):** Hem creat el fitxer `res/menu/menu_navegacio.xml` i l'hem connectat a un `BottomNavigationView`. Des d'aquí l'usuari pot anar directe a **Partits** (`pantalla_partits`), **Els meus partits** (`mispartidos`) o **Configuració** (`activity_settings`).
+* **Llistes dinàmiques (`488-RA3`):** Hem muntat dos `RecyclerView` diferents, cadascun amb el seu propi `Adapter` i `ViewHolder`:
+  * **Llista general de partits (`PartitAdapter.kt`):** Ensenya tots els partits disponibles amb la pista, l'hora, el nivell i l'estat per poder-s'hi apuntar.
+  * **Els meus partits (`MisPartidosAdapter.kt`):** Té un disseny propi per als partits on ja estem apuntats i permet **afegir**, **modificar** i **eliminar** partits. Cada vegada que fem una d'aquestes accions, surt un `Toast` per pantalla i es guarda un missatge al `Logcat`.
 
 ---
 
-## 📂 Estructura dels fitxers principals
+## 2. Com està fet el codi
 
-```text
-app/src/main/
-├── java/com/example/padelmatch_interficies/
-│   ├── OnlyloginActivity.kt       # Inici de sessió
-│   ├── RegisterActivity.kt        # Registre d'usuari
-│   ├── pantalla_partits.kt        # Llistat principal de partits
-│   ├── mispartidos.kt             # Partits de l'usuari
-│   ├── activity_crearpartit.kt    # Formulari per crear/editar partit
-│   ├── filtro.kt                  # Filtres de cerca
-│   ├── activity_settings.kt       # Configuració i tancar sessió
-│   ├── ayuda.kt                   # Pantalla d'ajuda
-│   ├── Partit.kt                  # Classe model (data class)
-│   └── PartitsAdapter.kt          # Adapter i ViewHolder del RecyclerView
-└── res/
-    ├── layout/                    # Tots els XML de les pantalles i dels ítems (item_partit, item_meu_partit)
-    └── values/                    # Colors, textos (strings.xml) i tema de l'app (themes.xml)
+### El menú de navegació (`menu_navegacio.xml` i `pantalla_partits.kt`)
+Primer vam definir les tres opcions del menú dins de `res/menu/menu_navegacio.xml`, posant a cada una el seu `id`, una icona i el text. Després, a les pantalles principals, enllacem el `BottomNavigationView` amb `findViewById` i fem servir `setOnItemSelectedListener`. Dins d'aquest listener, amb un `when (item.itemId)` mirem quina opció ha premut l'usuari i obrim l'Activity que toca amb un `Intent`. També marquem amb `selectedItemId` en quina pestanya estem en cada moment.
+
+### Les llistes (`Adapter` i `ViewHolder`)
+Per mostrar els partits sense carregar el mòbil, utilitzem `RecyclerView` amb un `LinearLayoutManager`:
+* **`ViewHolder` (`PartitViewHolder` i `MisPartidosViewHolder`):** És la classe que guarda els components de cada targeta (els `TextView` amb el nom, la pista, l'hora, el nivell i els botons). Així Android no ha d'anar fent `findViewById` tota l'estona mentre fas scroll.
+* **`Adapter` (`PartitAdapter` i `MisPartidosAdapter`):** S'encarrega d'agafar el disseny XML de cada fila (`item_partit.xml` i `item_mispartidos.xml`) a `onCreateViewHolder` i d'omplir-lo amb les dades de cada partit a `onBindViewHolder`.
+* **Afegir, modificar i eliminar:** A `MisPartidosAdapter` i `mispartidos.kt` hem programat els clics dels botons de cada targeta i del botó flotant (`+`). Quan afegim un partit avisem l'adapter amb `notifyItemInserted()`, quan l'editem fem servir `notifyItemChanged()`, i quan l'esborrem cridem `notifyItemRemoved()`. A més, en tots tres casos mostrem un `Toast` perquè l'usuari vegi que s'ha fet el canvi i deixem un `Log.d()` per comprovar-ho al debug.
+
+---
+
+## 3. Usabilitat i Accessibilitat per pantalla (`1708-RA3`)
+
+Hem repassat totes les pantalles perquè l'app s'entengui bé a primera vista i es pugui fer servir amb lectors de pantalla (*TalkBack*):
+
+* **`splashscreen`:** Hem posat `android:contentDescription` al logotip perquè un lector de pantalla sàpiga què és, i l'animació és curta perquè no molesti ni retardi l'entrada a l'app.
+* **`login` i `RegisterActivity`:** Tots els quadres de text tenen un `hint` clar perquè se sàpiga què cal escriure i fan servir fons fosc (`@color/backBlack`) amb lletres blanques perquè es llegeixin bé.
+* **`pantalla_partits`:**
+  * Les icones que fan de botó (el micròfon `btnMic`, el filtre `img_filtro` i el botó `+` per crear partit `fab_add_match`) tenen el seu `android:contentDescription` tret de `strings.xml`.
+  * Els botons de dalt tenen una mida mínima de `48dp` x `48dp` perquè sigui fàcil clicar-los amb el dit sense fallar.
+  * Al menú de navegació es veu tant la icona com el text a sota (`app:labelVisibilityMode="labeled"`) perquè quedi clar on porta cada botó.
+* **`mispartidos`:** Els botons d'editar i esborrar de cada partit tenen descripció per a lectors de pantalla, bona separació entre ells i confirmen l'acció amb un `Toast`.
+* **`activity_crearpartit`, `filtro`, `activity_settings` i `ayuda`:** Segueixen els mateixos colors amb bon contrast, tenen tots els textos a `strings.xml` i no tenen botons enganxats o tapats.
+
+---
+
+## 4. Lliurament
+
+* **Repositori GitHub:** [PadelMatch_Interficies](https://github.com/EricMacarroCanton/PadelMatch_Interficies)
+* **Vídeo demostratiu:** *(Enganxa aquí l'enllaç de YouTube ensenyant l'animació inicial, el menú i com s'afegeixen, modifiquen i eliminen partits)*

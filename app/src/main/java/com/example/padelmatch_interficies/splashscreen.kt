@@ -9,13 +9,11 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class splashscreen : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splashscreen)
 
         val imgLogo = findViewById<ImageView>(R.id.imgLogo)
-
         val animation = AnimationUtils.loadAnimation(this, R.anim.splash_animation)
         imgLogo.startAnimation(animation)
 
@@ -23,13 +21,12 @@ class splashscreen : AppCompatActivity() {
         val isLoggedIn = sharedPreferences.getBoolean("IS_LOGGED_IN", false)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (isLoggedIn) {
-                val intent = Intent(this, pantalla_partits::class.java)
-                startActivity(intent)
+            val intent = if (isLoggedIn) {
+                Intent(this, pantalla_partits::class.java)
             } else {
-                val intent = Intent(this, login::class.java)
-                startActivity(intent)
+                Intent(this, login::class.java)
             }
+            startActivity(intent)
             finish()
         }, 2000)
     }
